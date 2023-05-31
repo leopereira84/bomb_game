@@ -1,6 +1,6 @@
 import React from "react";
 import { Text } from "react-native";
-import { Button, ButtonContent } from "./styles";
+import { Button, ButtonContent } from "./styled";
 
 export default function ButtonComponent ({ buttonText, handlePress }){
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Container, Icon, NumberParagraph, Paragraph, ScrollTextRules, Title } from "./styles";
+import { Container, Icon, NumberParagraph, Paragraph, ScrollTextRules, Title } from "./styled";
 
 export default function Rules() {
   const navigation = useNavigation();
