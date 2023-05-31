@@ -2,7 +2,7 @@ import React from "react";
 import ButtonComponent from "../../components/Buttons";
 import { Container, Logo, Rules, SubTitle, Title } from "./styles";
 
-export default function Start (){
+export default function Start() {
   const handleNavToPlayAlone = () => {
     console.log("Teste de play alone");
   }
@@ -18,7 +18,7 @@ export default function Start (){
   return (
     <Container>
       <Logo source={require("../../assets/logoDark.png")} style={{ resizeMode: "contain" }} />
-      <Title>Bem-vindo ao {"\n"} Bomb Game</Title>
+      <Title>Bem-vindo ao {"\n"}Bomb Game</Title>
       <SubTitle>Escolha um modo de jogo.</SubTitle>
       <ButtonComponent buttonText={"Jogar Solo"} handlePress={handleNavToPlayAlone} />
       <ButtonComponent buttonText={"Jogar em Dupla"} handlePress={handleNavToPlayTogether} />
