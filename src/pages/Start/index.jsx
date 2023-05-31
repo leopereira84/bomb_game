@@ -1,8 +1,11 @@
 import React from "react";
-import ButtonComponent from "../../components/Buttons";
+import { useNavigation } from "@react-navigation/native";
 import { Container, Logo, Rules, SubTitle, Title } from "./styles";
+import ButtonComponent from "../../components/Buttons";
 
 export default function Start() {
+  const navigation = useNavigation();
+
   const handleNavToPlayAlone = () => {
     console.log("Teste de play alone");
   }
@@ -11,8 +14,8 @@ export default function Start() {
     console.log("Teste de play together");
   }
 
-  const handleNavToRules = () => {
-    console.log("Teste de rules");
+  function handleNavToRules () {
+    navigation.navigate("Rules")
   }
 
   return (
