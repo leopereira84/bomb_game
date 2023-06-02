@@ -10,7 +10,7 @@ export default function Exploded() {
   const navigation = useNavigation();
 
   function handleNavToStart() {
-    navigation.navigate("Start");r
+    navigation.navigate("Start");
   }
 
   return (
