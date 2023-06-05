@@ -16,8 +16,8 @@ export default function PlayAlone() {
   const [started, setStarted] = useState(false);
   const [pin, setPin] = useState(["", "", ""]);
   const [hours, setHours] = useState("00");
-  const [minutes, setMinutes] = useState("00");
-  const [seconds, setSeconds] = useState("10");
+  const [minutes, setMinutes] = useState("03");
+  const [seconds, setSeconds] = useState("00");
 
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
@@ -45,7 +45,7 @@ export default function PlayAlone() {
   }
 
   async function fetchQuestion() {
-    const randomNumber = Math.floor(Math.random() * 6 + 1);
+    const randomNumber = Math.floor(Math.random() * 9 + 1);
 
     const {data} = await api.get(`questions/${randomNumber}`);
 
@@ -92,7 +92,6 @@ export default function PlayAlone() {
         <TipContainer>
           <TipTitle>Sua dica:</TipTitle>
           <TipText>{question}</TipText>
-          <TipText>{answer}</TipText>
         </TipContainer>
       )}
 

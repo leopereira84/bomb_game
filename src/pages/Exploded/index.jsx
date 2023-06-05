@@ -15,7 +15,7 @@ export default function Exploded() {
   }
 
   useEffect(() => {
-    Vibration.vibrate("5000");
+    Vibration.vibrate(2000);
   }, []);
 
   return (

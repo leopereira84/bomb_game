@@ -17,7 +17,7 @@
     },
     {
       "id": 4,
-      "pergunta": "Quanto é 2 * 2 * 4 *9?",
+      "pergunta": "Quanto é 2 * 2 * 4 * 9?",
       "resp": "144"
     },
     {
@@ -29,6 +29,21 @@
       "id": 6,
       "pergunta": "Quais são os 3 primeiros números de PI?",
       "resp": "314"
+    },
+    {
+      "id": 7,
+      "pergunta": "Qual a soma de todos os números pares de 0 a 20?",
+      "resp": "110"
+    },
+    {
+      "id": 8,
+      "pergunta": "Qual a soma de todos os números ímpares de 1 a 25?",
+      "resp": "169"
+    },
+    {
+      "id": 9,
+      "pergunta": "Qual a soma de todos os números ímpares de 51 a 61?",
+      "resp": "336"
     }
   ]
 }

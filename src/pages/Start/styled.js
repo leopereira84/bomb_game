@@ -9,13 +9,13 @@ export const Container = styled.View`
 `;
 
 export const Logo = styled.Image`
-  width: ${RFValue(270)}px;
-  height: ${RFValue(50)}px;
+  width: ${RFValue(300)}px;
+  height: ${RFValue(80)}px;
   margin: 0 auto;
 `;
 
 export const Title = styled.Text`
-  margin-top: ${RFValue(70)}px;
+  margin-top: ${RFValue(50)}px;
   margin-bottom: ${RFValue(110)}px;
   font-size: ${RFValue(32)}px;
   font-family: ${({ theme }) => theme.fonts.bold};
