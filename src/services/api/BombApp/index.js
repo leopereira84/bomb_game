@@ -45,7 +45,6 @@ export default BombService = {
       if(timeEnded) {
         clearInterval(intervalId);
         setStarted(false);
-        Vibration.vibrate(2000);
         navigation.navigate("Exploded");
       }
 
