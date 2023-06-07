@@ -13,7 +13,7 @@ export default function Rules() {
     <Container>
       <Icon name="arrow-back-ios" onPress={handleNavToStart} />
       <ScrollTextRules>
-        <Title>Jogando Solo</Title>
+        {/*<Title>Jogando Solo</Title>
         <Paragraph>
           <NumberParagraph>1 - </NumberParagraph>
           Você vai receber uma dica da senha, que será uma conta matemática,
@@ -25,17 +25,18 @@ export default function Rules() {
           senha serão limpos. Se você acertar, será enviado para uma página de
           sucesso, se errar, será enviado para uma página de falha.
         </Paragraph>
-        <Title style={{ marginTop: 30 }}>Jogando Em Dupla</Title>
+        <Title style={{ marginTop: 30 }}>Jogando Em Dupla</Title> */}
+        <Title style={{ marginTop: 30 }}>Como Jogar</Title>
         <Paragraph>
           <NumberParagraph>1 - </NumberParagraph>
-          Para jogar esse jogo, precisa de um parceiro, a pessoa 01 vai colocar:
+          Para jogar esse jogo, precisa de um parceiro, uma pessoa vai colocar:
           O tempo da bomba, uma dica de senha e a senha.
         </Paragraph>
         <Paragraph>
           <NumberParagraph>2 - </NumberParagraph>
-          Assim que ela preencher tudo ela deve clicar em "iniciar" e depois
-          disso vai ser iniciada a contagem. Se você errar, o celular vai vibrar
-          indicando o erro.
+          Assim que preencher tudo, ela deve clicar em "iniciar"
+          e passar o celular para a outra pessoa.
+          Se você errar, o celular vai vibrar indicando o erro.
         </Paragraph>
         <Paragraph style={{ marginBottom: 20 }}>
           <NumberParagraph>3 - </NumberParagraph>

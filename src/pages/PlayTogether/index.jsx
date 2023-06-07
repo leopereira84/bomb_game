@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BombMessage, Container, ScrollContainer, Title } from "./styled";
 import { useNavigation } from "@react-navigation/native";
 
@@ -6,9 +6,10 @@ import InputTimer from "../../components/PlayTogether/InputTimer";
 import TipInput from "../../components/PlayTogether/TipInput";
 import InputPassword from "../../components/PlayTogether/InputPassword";
 import ButtonComponent from "../../components/Buttons";
-import { Alert } from "react-native";
 
 import BombService from "../../services/api/BombApp";
+
+import { Audio } from "expo-av";
 
 export default function PlayTogether() {
   const navigation = useNavigation();
@@ -24,12 +25,55 @@ export default function PlayTogether() {
   const [answer, setAnswer] = useState("");
   const [intervalId, setIntervalId] = useState();
 
+  const [sound, setSound] = useState();
+
   function handleNavToStart() {
     navigation.navigate("Start");
   }
 
-  function handleStartBomb() {
+  async function handleStartBeep() {
+    console.log('Loading Sound');
+    const { sound } = await Audio.Sound.createAsync( require('../../assets/bomb-beep.mp3'));
+    setSound(sound);
+
+    console.log('Playing Beep');
+    sound.setIsLoopingAsync(true);
+    await sound.playAsync();
+  }
+
+  async function handlePlaySuccess() {
+    console.log('Loading Sound');
+    const { sound } = await Audio.Sound.createAsync( require('../../assets/success.mp3'));
+    setSound(sound);
+
+    console.log('Playing Success');
+    sound.setVolumeAsync(0.5);
+    await sound.playAsync();
+  }
+
+  async function handlePlayExplosion() {
+    console.log('Loading Sound');
+    const { sound } = await Audio.Sound.createAsync( require('../../assets/explosion.mp3'));
+    setSound(sound);
+
+    console.log('Playing Explosion');
+    sound.setVolumeAsync(0.5);
+    await sound.playAsync();
+  }
+
+  useEffect(() => {
+    return sound ? () => {
+          console.log('Unloading Sound');
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
+
+  async function handleStartBomb() {
+
     const diffTime = BombService.getDiffTime({hours, minutes, seconds});
+
+    handleStartBeep();
 
     BombService.startCountDown({
       setSeconds,
@@ -40,6 +84,7 @@ export default function PlayTogether() {
       setIntervalId,
       intervalId,
       navigation,
+      handlePlayExplosion,
     });
   }
 
@@ -66,18 +111,21 @@ export default function PlayTogether() {
       intervalId,
       setPin,
       setAnswer,
-      navigation
+      navigation,
+      handlePlaySuccess,
     })
   }
 
   function handleGiveUpGame() {
-    BombService.giveUpGame({intervalId, navigation});
+    BombService.giveUpGame({intervalId, navigation, handlePlayExplosion});
   }
 
   return (
     <ScrollContainer>
       <Container>
-        <Title>Bomb Game Dupla</Title>
+        {/*<Title>Bomb Game Dupla</Title> */}
+
+        <Title>Bomb Game</Title>
 
         <InputTimer
           hours={hours}
@@ -113,6 +161,7 @@ export default function PlayTogether() {
                 buttonText="Página Inicial"
                 handlePress={handleNavToStart}
               />
+
             </>
           ) : (
             <>

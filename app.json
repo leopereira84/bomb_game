@@ -11,6 +11,19 @@
       "backgroundColor": "#000000"
     },
     "icon": "./src/assets/icon.png",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "plugins": [
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "4a2eac37-c60e-4e4b-9126-8405113dd1bc"
+      }
+    }
   }
 }

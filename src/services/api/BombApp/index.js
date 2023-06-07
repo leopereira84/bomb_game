@@ -27,6 +27,7 @@ export default BombService = {
     setIntervalId,
     intervalId,
     navigation,
+    handlePlayExplosion,
   }) => {
     let duration = moment.duration(diffTime * 1000);
     const interval = 1000;
@@ -45,6 +46,7 @@ export default BombService = {
       if(timeEnded) {
         clearInterval(intervalId);
         setStarted(false);
+        handlePlayExplosion();
         navigation.navigate("Exploded");
       }
 
@@ -87,8 +89,9 @@ export default BombService = {
       return;
   },
 
-  giveUpGame: ({intervalId, navigation}) => {
+  giveUpGame: ({intervalId, navigation, handlePlayExplosion}) => {
     clearInterval(intervalId);
+    handlePlayExplosion();
     navigation.navigate("Exploded");
   },
 
@@ -124,11 +127,12 @@ export default BombService = {
   },
 
   bomnDisarmTogether: ({
-    pin, answer, setStarted, intervalId, setPin, setAnswer, navigation
+    pin, answer, setStarted, intervalId, setPin, setAnswer, navigation, handlePlaySuccess
   }) => {
     if(pin.join("") === answer) {
       clearInterval(intervalId);
       setStarted(false);
+      handlePlaySuccess();
       navigation.navigate("Disarmed");
       setPin(["", "", ""]);
       setAnswer("");
